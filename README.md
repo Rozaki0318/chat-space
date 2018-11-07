@@ -12,18 +12,17 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
-> Prime key and timestamps are not written in the tables below. Those columns are created by default.
-------------------------
 
 ### users table
 
 |Column|Type|Options|
 |------|----|-------|
-|user_name|string|null: false, unique: true|
+|name|string|null: false, unique: true|
 |email|string|null: false, unique: true|
 |password|string|null: false|
 
 ### Association
+- has_many :members
 - has_many :groups,through: :members
 - has_many :messages
 ------------------------
@@ -32,9 +31,10 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false|
+|name|string|null: false|
 
 ### Association
+- has_many :members
 - has_many :users,through: :members
 - has_many :messages
 ------------------------
