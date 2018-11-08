@@ -1,5 +1,6 @@
 .note {
   background-color: #38AEF0;
+  text-align: center;
 }
 
 .side {
@@ -7,43 +8,54 @@
   width: 300px;
   float: left;
   .side__user-content {
-    height: 15%;
+    height: 80px;
+    width: 100%;
     background-color: #253141;
+    margin: auto 0;
     position: relative;
     .user-content__user-name {
       font-size: 16px;
       font-weight: bold;
       color: #FFFFFF;
-      position: absolute;
-      top: 35px;
-      left: 20px;
+      line-height: 80px;
+      margin: 0 20px;
+      display: inline-block;
     }
-    .user-content__user--add-group {
+    .user-content__user--new-group {
+      position: relative;
+      display: inline-block;
+      margin-left: 100px;
+      .fa.fa-cog {
+        display: inline-block;
+      }
     }
     .user-content__user--edit-account {
+      position: relative;
+      display: inline-block;
+      .fa.fa-edit {
+        display: inline-block;
+      }
     }
   }
   .side__groups {
-    height: 85%;
+    width: 100%;
+    height: calc(100vh - 50px);
     background-color: #2f3e51;
     .groups__group-list {
-      height: 100%;
       .groups__group {
         height: 80px;
-        position: relative;
+        width: 100%;
         .group__name {
           font-size: 15px;
           color: #FFFFFF;
-          position: absolute;
-          top: 0;
-          left: 20px;
+          box-sizing: border-box;
+          margin-left: 20px;
         }
         .group__message {
           font-size: 11px;
           color: #FFFFFF;
-          position: absolute;
-          left: 20px;
-          bottom: 40px;
+          box-sizing: border-box;
+          margin-left: 20px;
         }
       }
     }
@@ -53,85 +65,29 @@
 .main {
   height: 100vh;
   width: calc(100vw - 300px);
-  float: right;
-  .main__group{
-    height: 15%;
-    width: 100%;
+  background-color: #AAAAAA;
+  float: left;
+  .main__group {
+    height: 80px;
     border: 1px solid #eeeeee;
-    position: relative;
+    box-sizing: border-box;
     .group__group-name {
       font-size: 20px;
       color: #333333;
-      position: absolute;
-      top: 35px;
-      left: 40px;
+      margin: 35px 0 15px;
+      float: left;
     }
     .group__group-member {
       font-size: 12px;
       color: #999999;
-      position: absolute;
-      top: 70px;
-      left: 40px;
+      box-sizing: border-box;
+      margin: 0 40px;
     }
     .group__edit-button {
-      height: 40px;
-      position: absolute;
-      top: 28px;
-      right: 40px;
-      border: 1px solid blue;
-    }
-  }
-
-  .main__chat {
-    height: calc(100% - 15% - 90px);
-    width: 100%;
-    .chat__message {
-      height: 80px;
-      width: 100%;
-      padding-top: 46px;
-      position: relative;
-      .chat__message-user {
-        font-size: 16px;
-        font-weight: bold;
-        color: #434A54;
-      }
-      .chat__message-date {
-        font-size: 12px;
-        color: #999999;
-        position: absolute;
-        top: 46px;
-        left: 100px;
-      }
-      .chat__message-text {
-        font-size: 14px;
-        color: #434A54;
-      }
-    }
-  }
-
-  .main__message-form {
-    height: 90px;
-    width: 100%;
-    background-color: #AAAAAA;
-    .message-form__form {
-      height: 100%;
-      width: 100%;
-      position: relative;
-      .message-form__input {
-        height: 10px;
-        font-size: 16px;
-        color: #434A54;
-        position: absolute;
-        left: 50px;
-      }
-      .message-form__send-button {
-        height: 15px;
-        background-color: #38AEF0;
-        position: absolute;
-        top: 20px;
-        right: 40px;
-        bottom: 20px;
-      }
     }
   }
 }
+
+
+
+

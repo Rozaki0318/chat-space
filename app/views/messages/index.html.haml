@@ -3,13 +3,18 @@
   %head
   %body
     .note
-      notification
+      チャットグループが作成されました。
+
     .side
       .side__user-content
         .user-content__user-name
           hoge
-        .user-content__user--add-group
+        .user-content__user--new-group
+        = link_to '/' do
+          %i.fa.fa-cog
         .user-content__user--edit-account
+        = link_to '/' do
+          %i.fa.fa-edit
       .side__groups
         .groups__group-list
           .groups__group
@@ -22,6 +27,7 @@
               hoge group
             .group__message
               hoge hoge hoge
+
     .main
       .main__group
         .group__group-name
@@ -30,17 +36,17 @@
           Member: hogehogehoge
         .group__edit-button
           edit
-      .main__chat
-        .chat__message
-          .chat__message-user
-            hoge
-          .chat__message-date
-            2018/11/09 06:28:44
-          .chat__message-text
-            haml, sass奮闘中
-      .main__message-form
-        .message-form__form
-          .message-form__input
-          .message-form__send-button
-            Send
+    /   .main__chat
+    /     .chat__message
+    /       .chat__message-user
+    /         hoge
+    /       .chat__message-date
+    /         2018/11/09 06:28:44
+    /       .chat__message-text
+    /         haml, sass奮闘中
+    /   .main__message-form
+    /     .message-form__form
+    /       .message-form__input
+    /       .message-form__send-button
+    /         Send
 
