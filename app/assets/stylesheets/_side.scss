@@ -1,0 +1,61 @@
+.side {
+  @include horizon;
+  height: 100%;
+  width: 300px;
+  .user {
+    box-sizing: inherit;
+    height: 90px;
+    width: 100%;
+    background-color: #253141;
+    position: relative;
+    .user__name {
+      @include horizon;
+      font-size: 16px;
+      font-weight: bold;
+      color: $side-color;
+      line-height: 80px;
+      margin-left: 20px;
+    }
+    .fa.fa-edit {
+      @include horizon;
+      height: 15px;
+      width: 15px;
+      position: absolute;
+      top: 40px;
+      right: 50px;
+      color: $side-color;
+    }
+    .fa.fa-cog {
+      @include horizon;
+      height: 10px;
+      width: 10px;
+      position: absolute;
+      top: 40px;
+      right: 20px;
+      color: $side-color;
+    }
+  }
+  .groups {
+    box-sizing: inherit;
+    height: calc(100% - 90px);
+    width: 300px;
+    background-color: #2f3e51;
+    .groups__group {
+        box-sizing: inherit;
+        height: 80px;
+        width: 100%;
+        .group__name {
+          box-sizing: inherit;
+          font-size: 15px;
+          color: $side-color;
+          margin-left: 20px;
+        }
+        .group__message {
+          font-size: 11px;
+          color: $side-color;
+          box-sizing: inherit;
+          margin-left: 20px;
+        }
+      }
+    }
+}
