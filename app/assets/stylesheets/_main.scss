@@ -10,13 +10,13 @@
     border: 1px solid #eeeeee;
     box-sizing: inherit;
     position: relative;
-    .group__name {
+    &__name {
       box-sizing: inherit;
       font-size: 20px;
       color: #333333;
       margin: 35px 40px 15px;
     }
-    .group__member {
+    &__member {
       font-size: 12px;
       color: #999999;
       box-sizing: inherit;
@@ -24,7 +24,7 @@
       position: absolute;
       bottom: 0px;
     }
-    .group__edit-btn {
+    &__edit-btn {
       @include horizon;
       height: 40px;
       font-size: 16px;
@@ -40,7 +40,7 @@
     box-sizing: inherit;
     width: 100%;
     height: calc(100% - 90px - 90px);
-    .chat__message {
+    &__message {
       box-sizing: inherit;
       height: 75px;
       width: 100%;
@@ -78,7 +78,7 @@
     height: 90px;
     width: 100%;
     background-color: #AAAAAA;
-    .footer-form {
+    &-form {
       box-sizing: inherit;
       height: 100%;
       width: 100%;
