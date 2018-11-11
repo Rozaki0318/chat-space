@@ -10,7 +10,7 @@
             =current_user.name
           = link_to edit_user_path(current_user) do
             %i.fa.fa-cog
-          = link_to edit_user_path(current_user) do
+          = link_to new_group_path do
             %i.fa.fa-edit
         .groups
           = render "groups"
@@ -20,7 +20,7 @@
             sample
           .group__member
             Member: hogehogehoge
-          = link_to '/' do
+          = link_to "/" do
             %button.group__edit-btn Edit
         .chat
           .chat__message

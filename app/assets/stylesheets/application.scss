@@ -1,10 +1,16 @@
+// reset css
 @import "./reset";
 
+// variable, font
 @import "./variables";
 @import "font-awesome";
 
+// mixin
 @import "./horizon";
+
+// pages
 @import "./flash";
+@import "./group";
 @import "./user";
 @import "./side";
 @import "./main";
