@@ -7,11 +7,11 @@
     .chatscreen
       .side
         .user
-          .user__name
-            hoge-san
-          = link_to '/' do
+          %h3.user__name
+            =current_user.name
+          = link_to edit_user_path(current_user) do
             %i.fa.fa-cog
-          = link_to '/' do
+          = link_to edit_user_path(current_user) do
             %i.fa.fa-edit
         .groups
           = render "groups"
