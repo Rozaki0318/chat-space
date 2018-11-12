@@ -6,12 +6,7 @@
     .chatscreen
       .side
         .user
-          %h3.user__name
-            =current_user.name
-          = link_to edit_user_path(current_user) do
-            %i.fa.fa-cog
-          = link_to edit_user_path(current_user) do
-            %i.fa.fa-edit
+          = render "user"
         .groups
           = render "groups"
       .main
@@ -20,7 +15,7 @@
             sample
           .group__member
             Member: hogehogehoge
-          = link_to '/' do
+          = link_to "/" do
             %button.group__edit-btn Edit
         .chat
           .chat__message
