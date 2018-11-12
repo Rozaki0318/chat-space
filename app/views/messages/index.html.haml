@@ -6,12 +6,7 @@
     .chatscreen
       .side
         .user
-          %h3.user__name
-            =current_user.name
-          = link_to edit_user_path(current_user) do
-            %i.fa.fa-cog
-          = link_to new_group_path do
-            %i.fa.fa-edit
+          = render "user"
         .groups
           = render "groups"
       .main
