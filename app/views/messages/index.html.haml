@@ -21,9 +21,11 @@
           .chat__message
             = render "message"
         .footer
-          %form.footer-form{:action=> "/", :method => "get"}
-            %input.footer-form__message{:type=> "text", :placeholder => "type a message"}
-              %label.footer-form__upload-label{for: "upload-icon"}
-                %input.footer-form__image{type: "file", id: "upload-icon"}
-                %i.fa.fa-image
-            %input.footer-form__send-btn{:type => "submit", :value => "Send"}
+          .footer-form
+            = form_for [@group, @message] do |f|
+              = f.text_field :content, class: 'footer-form__message', placeholder: 'type a message'
+              .footer-form__upload-label
+                = f.label :image, class: 'footer-form__image' do
+                  = fa_icon 'image', class: 'icon'
+                  = f.file_field :image, class: 'hidden'
+              = f.submit 'Send', class: 'footer-form__send-btn'
