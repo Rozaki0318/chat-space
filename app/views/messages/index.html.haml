@@ -22,10 +22,10 @@
             = render "message"
         .footer
           .footer-form
-            = form_for [@group, @message], id: "new_message" do |f|
+            = form_for [@group, @message] do |f|
               = f.text_field :content, class: 'footer-form__message', placeholder: 'type a message'
               .footer-form__upload-label
                 = f.label :image, class: 'footer-form__image' do
                   = fa_icon 'image', class: 'icon'
                   = f.file_field :image, class: 'hidden'
-              = f.submit 'Send', class: 'footer-form__send-btn'
+              = f.submit 'Send', class: 'footer-form__send-btn', id: "new_message"
