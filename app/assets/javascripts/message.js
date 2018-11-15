@@ -34,10 +34,8 @@ $(function (){
     })
 
     .done(function(data) {
-      console.log(data);
       var latestmsg = buildHTML(data);
       $('.chat__messages').append(latestmsg);
-      console.log(latestmsg);
       $('.chat').animate({scrollTop: $('.chat')[0].scrollHeight}, 'slow' );
       $('#new_message')[0].reset();
       $('.footer-form__send-btn').prop('disabled', false);
