@@ -1,34 +1,58 @@
 $(function (){
-  function buildHTML(message){
-     var html =
-      `<div class="chat-main__body">
-        <div class="chat-main__body--messages-list">
-          <div class="chat-main__message clearfix" data-id="2096">
-            <div class="chat-main__message-name">
-              ${message.user_name}
-            </div>
-            <div class="chat-main__message-time">
-              ${message.created_at}
-            </div>
-            <div class="chat-main__message-body">
-              <p class="chat-main__message__content">
-                ${message.content}
-              </p>
-              <div class="chat-main__message__image">
-                ${message.img}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>`
+  function buildHTML(message) {
+    if (message.content && message.image.url) {
+      var html =
+      '<div class="chat__message">' +
+        '<div class="chat__message-user">' +
+          message.user_name +
+        '</div>' +
+        '<div class="chat__message-date">' +
+          message.created_at +
+        '</div>' +
+        '<div class="chat__message-text">' +
+          '<p class="chat__message-text-content">' +
+            message.content +
+          '</p>' +
+          '<img src="' + message.image.url + '" class="chat__message-image" >' +
+        '</div>' +
+      '</div>'
+    } else if (message.content) {
+      var html =
+      '<div class="chat__message">' +
+        '<div class="chat__message-user">' +
+          message.user_name +
+        '</div>' +
+        '<div class="chat__message-date">' +
+          message.created_at +
+        '</div>' +
+        '<div class="chat__message-text">' +
+          '<p class="chat__message-text-content">' +
+            message.content +
+          '</p>' +
+        '</div>' +
+      '</div>'
+    } else if (message.image.url) {
+      var html =
+      '<div class="chat__message">' +
+        '<div class="chat__message-user">' +
+          message.user_name +
+        '</div>' +
+        '<div class="chat__message-date">' +
+          message.created_at +
+        '</div>' +
+        '<div class="chat__message-text">' +
+          '<img src="' + message.image.url + '" class="chat__message-image" >' +
+        '</div>' +
+      '</div>'
+    };
     return html;
   };
 
-  $('#new_message').on('submit', function(e){
+  $('#new_message').on('submit', function(e) {
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action');
-    console.log("jsjsjs")
+
     $.ajax({
       url: url,
       type: "POST",
@@ -38,13 +62,15 @@ $(function (){
       contentType: false
     })
 
-    .done(function(data){
-      var html = buildHTML(data);
-      $('.content').append(html)
-      $('.image').val('')
+    .done(function(data) {
+      var latestmsg = buildHTML(data);
+      $('.chat__messages').append(latestmsg);
+      $('.chat').animate({scrollTop: $('.chat')[0].scrollHeight}, 'slow' );
+      $('#new_message')[0].reset();
+      $('.footer-form__send-btn').prop('disabled', false);
     })
 
-    .fail(function(){
+    .fail(function() {
       alert('error');
     })
   })

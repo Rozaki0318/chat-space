@@ -40,36 +40,37 @@
     box-sizing: inherit;
     width: 100%;
     height: calc(100% - 90px - 90px);
-    &__message {
-      box-sizing: inherit;
-      height: 75px;
-      width: 100%;
-      // margin-top: 6px;
-      .chat__message-user {
+    overflow: scroll;
+    &__messages{
+      .chat__message {
         box-sizing: inherit;
-        height: 100%;
-        font-size: 16px;
-        font-weight: bold;
-        color: #434A54;
-        padding-top: 40px;
-        padding-left: 40px;
-        float: left;
-      }
-      .chat__message-date {
-        box-sizing: inherit;
-        font-size: 12px;
-        color: #999999;
-        float: left;
-        padding-top: 40px;
-        padding-left: 10px;
-      }
-      .chat__message-text {
-        clear: both;
-        box-sizing: inherit;
-        font-size: 14px;
-        color: #434A54;
-        padding-top: 10px;
-        padding-left: 40px;
+        width: 100%;
+        // margin-top: 6px;
+        .chat__message-user {
+          box-sizing: inherit;
+          font-size: 16px;
+          font-weight: bold;
+          color: #434A54;
+          padding-top: 40px;
+          padding-left: 40px;
+          float: left;
+        }
+        .chat__message-date {
+          box-sizing: inherit;
+          font-size: 12px;
+          color: #999999;
+          float: left;
+          padding-top: 40px;
+          padding-left: 10px;
+        }
+        .chat__message-text {
+          clear: both;
+          box-sizing: inherit;
+          font-size: 14px;
+          color: #434A54;
+          padding-top: 10px;
+          padding-left: 40px;
+        }
       }
     }
   }

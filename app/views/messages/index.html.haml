@@ -12,13 +12,13 @@
       .main
         .group
           .group__name
-            sample
+            = @group.name
           .group__member
             Member: hogehogehoge
           = link_to "/" do
             %button.group__edit-btn Edit
         .chat
-          .chat__message
+          .chat__messages
             = render "message"
         .footer
           .footer-form
