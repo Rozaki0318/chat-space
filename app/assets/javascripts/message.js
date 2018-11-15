@@ -1,6 +1,6 @@
 $(function (){
   function buildHTML(message) {
-    if (message.content && message.image.url) {
+    if (message.image.url) {
       var html =
       '<div class="chat__message">' +
         '<div class="chat__message-user">' +
@@ -29,19 +29,6 @@ $(function (){
           '<p class="chat__message-text-content">' +
             message.content +
           '</p>' +
-        '</div>' +
-      '</div>'
-    } else if (message.image.url) {
-      var html =
-      '<div class="chat__message">' +
-        '<div class="chat__message-user">' +
-          message.user_name +
-        '</div>' +
-        '<div class="chat__message-date">' +
-          message.created_at +
-        '</div>' +
-        '<div class="chat__message-text">' +
-          '<img src="' + message.image.url + '" class="chat__message-image" >' +
         '</div>' +
       '</div>'
     };
