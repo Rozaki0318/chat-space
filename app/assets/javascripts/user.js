@@ -25,13 +25,13 @@ $(function (){
     append_list.append(html);
    }
 
-  $(document).on('click', '.chat-group-user__btn--add', function() {
+  $(search_list).on('click', '.chat-group-user__btn--add', function() {
     var user = $(this).data();
     appendMember(user);
     $(this).parent().remove();
   });
 
-  $(document).on("click",".chat-group-user__btn--remove ",function(){
+  $(append_list).on("click",".chat-group-user__btn--remove ",function(){
     $(this).parent().remove();
   });
 
