@@ -14,8 +14,10 @@
           .group__name
             = @group.name
           .group__member
-            Member: hogehogehoge
-          = link_to "/" do
+            Member:
+            - @group.users.each do |user|
+              = user.name
+          = link_to "./edit" do
             %button.group__edit-btn Edit
         .chat
           .chat__messages
