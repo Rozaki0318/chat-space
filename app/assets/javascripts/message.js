@@ -1,6 +1,7 @@
 $(function (){
   function buildHTML(message) {
-    let imagehtml = (message.image.url) ? `<img class="chat__message-image" src="${message.image.url}">` : "";
+    console.log(message);
+    let imagehtml = (message.image) ? `<img class="chat__message-image" src="${message.image}">` : "";
       let html =
         `<div class="chat__message">
           <div class="chat__message-user">
@@ -16,7 +17,7 @@ $(function (){
             ${imagehtml}
           </div>
         </div>`
-    return html;
+    $('.chat__messages').append(html);
   }
 
   $('#new_message').on('submit', function(e) {
@@ -45,4 +46,32 @@ $(function (){
       alert('error');
     })
   })
-})
+
+  var interval = setInterval(function() {
+    var LastMsgId = $('.chat__message').last().attr('message-id');
+
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+      $.ajax({
+        url: window.location.href,
+        type: "GET",
+        data: { id: LastMsgId },
+        dataType: "json"
+      })
+
+      .done(function(data){
+        console.log(data);
+        data.forEach(function(message){
+          buildHTML(message);
+        })
+        $('.chat').animate({scrollTop: $('.chat')[0].scrollHeight}, 'slow' );
+      })
+
+      .fail(function(){
+        alert("Automatically update is failed")
+      })
+
+    } else {
+      clearInterval(interval);
+    }
+  }, 5000 );
+});
