@@ -1,6 +1,5 @@
 $(function (){
   function buildHTML(message) {
-    console.log(message);
     let imagehtml = (message.image) ? `<img class="chat__message-image" src="${message.image}">` : "";
       let html =
         `<div class="chat__message">
@@ -59,7 +58,6 @@ $(function (){
       })
 
       .done(function(data){
-        console.log(data);
         data.forEach(function(message){
           buildHTML(message);
         })
