@@ -1,22 +1,23 @@
+$(document).on('turbolinks:load', function() {
 $(function (){
   function buildHTML(message) {
     let imagehtml = (message.image) ? `<img class="chat__message-image" src="${message.image}">` : "";
-      let html =
-        `<div class="chat__message">
-          <div class="chat__message-user">
-            ${message.user_name}
-          </div>
-          <div class="chat__message-date">
-            ${message.created_at}
-          </div>
-          <div class="chat__message-text">
-            <p class="chat__message-text-content">
-              ${message.content}
-            </p>
-            ${imagehtml}
-          </div>
-        </div>`
-    $('.chat__messages').append(html);
+    let html =
+      `<div class="chat__message" message-id = ${message.id}>
+        <div class="chat__message-user">
+          ${message.user_name}
+        </div>
+        <div class="chat__message-date">
+          ${message.created_at}
+        </div>
+        <div class="chat__message-text">
+          <p class="chat__message-text-content">
+            ${message.content}
+          </p>
+          ${imagehtml}
+        </div>
+      </div>`
+  $('.chat__messages').append(html);
   }
 
   $('#new_message').on('submit', function(e) {
@@ -47,9 +48,11 @@ $(function (){
   })
 
   var interval = setInterval(function() {
-    var LastMsgId = $('.chat__message').last().attr('message-id');
+    // var LastMsgId = $('.chat__message').last().attr('message-id');
 
     if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+      var LastMsgId = $('.chat__message').last().attr('message-id');
+      console.log(LastMsgId);
       $.ajax({
         url: window.location.href,
         type: "GET",
@@ -73,3 +76,5 @@ $(function (){
     }
   }, 5000 );
 });
+});
+
